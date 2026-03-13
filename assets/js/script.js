@@ -14,58 +14,69 @@ const SELECTORS = {
 };
 
 //UTILS
-const getLessonsPath = () => window.location.pathname.includes("/pages/") ? "lessons.html" : "pages/lessons.html";
+const getLessonsPath = () => (window.location.pathname.includes("/pages/") ? "lessons.html" : "pages/lessons.html");
 const getRemInPx = () => parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
 
 const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
 
-
 //INITIALIZATION AT TOP
 const handleInitialLoader = async () => {
-    const transitionData = sessionStorage.getItem("isTransitioning");
-    if (transitionData) {
-        let startTime = parseInt(transitionData, 10);
-        if (isNaN(startTime)) startTime = Date.now();
+  const transitionData = sessionStorage.getItem("isTransitioning");
+  if (transitionData) {
+    let startTime = parseInt(transitionData, 10);
+    if (isNaN(startTime)) startTime = Date.now();
 
-        const loader = document.querySelector(SELECTORS.loader);
-        if (loader) {
-            loader.style.transition = 'none';
-            loader.classList.add("visible");
-            
-            const defaultContainer = loader.querySelector(".default");
-            const loaderText = defaultContainer?.querySelector(".loader-text");
-            if (defaultContainer && loaderText) {
-                loaderText.textContent = "CLAN MAXONA";
-                defaultContainer.classList.add("visible");
-            }
+    const loader = document.querySelector(SELECTORS.loader);
+    if (loader) {
+      loader.style.transition = "none";
+      loader.classList.add("visible");
 
-            await Promise.all(
-                Array.from(document.images)
-                    .filter(img => !img.complete)
-                    .map(img => new Promise(resolve => {
-                        img.onload = img.onerror = resolve;
-                    }))
-            );
+      const defaultContainer = loader.querySelector(".default");
+      const loaderText = defaultContainer?.querySelector(".loader-text");
+      if (defaultContainer && loaderText) {
+        loaderText.textContent = "CLAN MAXONA";
+        defaultContainer.classList.add("visible");
+      }
 
-            const elapsed = Date.now() - startTime;
-            const remaining = Math.max(0, 1000 - elapsed);
-            await sleep(remaining);
+      await Promise.all(
+        Array.from(document.images)
+          .filter((img) => !img.complete)
+          .map(
+            (img) =>
+              new Promise((resolve) => {
+                img.onload = img.onerror = resolve;
+              }),
+          ),
+      );
 
-            requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                    loader.style.transition = 'opacity 0.5s';
-                    loader.classList.remove("visible");
-                    
-                    setTimeout(() => {
-                       sessionStorage.removeItem("isTransitioning");
-                    }, 500);
-                });
-            });
-        }
+      const elapsed = Date.now() - startTime;
+      const remaining = Math.max(0, 1000 - elapsed);
+      await sleep(remaining);
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          loader.style.transition = "opacity 0.5s";
+          loader.classList.remove("visible");
+
+          setTimeout(() => {
+            sessionStorage.removeItem("isTransitioning");
+          }, 500);
+        });
+      });
     }
-}
+  }
+};
 handleInitialLoader();
 
+window.addEventListener("pageshow", (event) => {
+  if (event.persisted) {
+    const loader = document.querySelector(SELECTORS.loader);
+    if (loader && loader.classList.contains("visible")) {
+      loader.classList.remove("visible");
+      sessionStorage.removeItem("isTransitioning");
+    }
+  }
+});
 
 //COMPONENTS
 
@@ -158,24 +169,24 @@ const initSmoothScrollAndTransition = () => {
     const targetUrl = new URL(link.href, window.location.href);
     if (targetUrl.origin === window.location.origin && !link.hasAttribute("download") && link.target !== "_blank") {
       if (targetUrl.pathname === window.location.pathname && targetUrl.hash) {
-         return; 
+        return;
       }
 
       e.preventDefault();
       const loader = document.querySelector(SELECTORS.loader);
-      
+
       if (loader) {
-        loader.querySelectorAll(".success, .fail, .btn--close").forEach(el => {
-          if (el.classList.contains('visible') || el.style.opacity === "1") {
+        loader.querySelectorAll(".success, .fail, .btn--close").forEach((el) => {
+          if (el.classList.contains("visible") || el.style.opacity === "1") {
             el.classList.remove("visible");
             if (el.style) el.style.opacity = "0";
             if (el.style) el.style.display = "none";
           }
         });
-        
+
         const defaultContainer = loader.querySelector(".default");
         const loaderText = defaultContainer?.querySelector(".loader-text");
-        
+
         if (defaultContainer && loaderText) {
           loaderText.textContent = "CLAN MAXONA";
           defaultContainer.classList.add("visible");
@@ -184,8 +195,8 @@ const initSmoothScrollAndTransition = () => {
         sessionStorage.setItem("isTransitioning", Date.now().toString());
 
         loader.classList.add("visible");
-        
-        await sleep(300); 
+
+        await sleep(300);
         window.location.href = link.href;
       } else {
         window.location.href = link.href;
@@ -204,7 +215,7 @@ const initSmoothScrollAndTransition = () => {
 
     if (targetUrl.origin === window.location.origin && !link.hasAttribute("data-prefetched")) {
       link.setAttribute("data-prefetched", "true");
-      
+
       const prefetchLink = document.createElement("link");
       prefetchLink.rel = "prefetch";
       prefetchLink.href = link.href;
@@ -243,7 +254,7 @@ const updateUIForRegistered = () => {
   const heroBtn = document.querySelector("#hero-btn");
   if (heroBtn) heroBtn.setAttribute("href", getLessonsPath());
   const smallBtn = document.querySelector(".small-screen");
-  if (smallBtn) heroBtn.setAttribute("href", getLessonsPath());
+  if (smallBtn) smallBtn.setAttribute("href", getLessonsPath());
 
   heroSection?.classList.add("registered");
 };
@@ -283,10 +294,10 @@ const initFormHandler = () => {
         loaderText.textContent = "Идет обработка данных";
         defaultContainer.classList.add("visible");
       }
-      loader.querySelectorAll(".success, .fail").forEach(el => el.classList.remove("visible"));
+      loader.querySelectorAll(".success, .fail").forEach((el) => el.classList.remove("visible"));
       loader.classList.add("visible");
     }
-    
+
     if (submitBtn) submitBtn.disabled = true;
 
     try {
