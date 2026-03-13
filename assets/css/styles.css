@@ -1414,7 +1414,6 @@ footer {
   display: flex;
   gap: 2.4rem;
   transition: transform 0.4s ease-out;
-  padding: 1.2rem;
 }
 
 .review-item {
@@ -1461,6 +1460,30 @@ footer {
 .carousel-btn:disabled {
   opacity: 0.3;
   cursor: not-allowed;
+}
+
+.carousel-dots {
+  display: none;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 3.2rem;
+  width: 100%;
+}
+
+.carousel-dot {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background-color: #228be6;
+  transform: scale(1.3);
 }
 
 /* LESSONS SECTION */
@@ -2047,6 +2070,14 @@ footer {
     width: 48rem;
     height: 48rem;
   }
+  
+  .carousel-btn {
+    display: none;
+  }
+  
+  .carousel-dots {
+    display: flex;
+  }
 
   .faq-section::before {
     z-index: -999;
@@ -2086,6 +2117,13 @@ footer {
   .hero-section,
   .lesson-hero-section {
     padding: 0 4rem;
+  }
+
+    .hero-section::before,
+  .lesson-hero-section::before {
+    background-position: 50% !important;
+    background-size: 300% !important;
+    opacity: 0.25 !important;
   }
 
   .stats-section::before {
@@ -2224,6 +2262,11 @@ footer {
     z-index: -999;
   }
 
+  .gradient {
+    background-image: linear-gradient(rgba(12, 30, 69, 0.65), rgba(4, 9, 20, 0.65), rgba(12, 30, 69, 0.65));
+  }
+
+
   footer {
     padding-left: 4rem;
     padding-right: 4rem;
@@ -2317,8 +2360,8 @@ footer {
   }
 
   .video {
-    width: 40rem;
-    height: 22.55rem;
+    width: 42rem;
+    height: 23.68rem;
   }
 
   html {
@@ -2329,13 +2372,6 @@ footer {
     text-align: center;
     font-size: 3.2rem;
     width: 35rem;
-  }
-
-  .hero-section::before,
-  .lesson-hero-section::before {
-    background-position: 50% !important;
-    background-size: 300% !important;
-    opacity: 0.25 !important;
   }
 
   .hero-section,
@@ -2527,7 +2563,7 @@ footer {
     flex: 0 0 calc(50% - 1.2rem);
   }
   .featured-review {
-    width: calc((100% - 17.6rem) / 2);
+    width: calc(50% - 1.2rem);
   }
 }
 
@@ -2547,6 +2583,6 @@ footer {
     font-size: 1.8rem;
   }
   .featured-review {
-    width: calc(100% - 10.4rem);
+    width: 100%;
   }
 }

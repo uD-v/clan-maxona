@@ -336,20 +336,45 @@ const initReviewsCarousel = () => {
   const prevBtn = document.querySelector(".prev-btn");
   const nextBtn = document.querySelector(".next-btn");
   const items = document.querySelectorAll(".review-item");
+  const dotsContainer = document.querySelector(".carousel-dots");
 
   if (!track || !prevBtn || !nextBtn || items.length === 0) return;
 
   let currentIndex = 0;
 
+  if (dotsContainer) {
+    dotsContainer.innerHTML = "";
+    items.forEach((_, i) => {
+      const dot = document.createElement("button");
+      dot.classList.add("carousel-dot");
+      dot.setAttribute("aria-label", `Перейти к отзыву ${i + 1}`);
+      dot.addEventListener("click", () => {
+        const itemsToShow = window.innerWidth > 1000 ? 3 : window.innerWidth > 600 ? 2 : 1;
+        currentIndex = Math.min(i, items.length - itemsToShow);
+        updateCarousel();
+      });
+      dotsContainer.appendChild(dot);
+    });
+  }
+
   const updateCarousel = () => {
-    const itemWidth = items[0].offsetWidth;
-    const gap = 24;
+    const itemRect = items[0].getBoundingClientRect();
+    const itemWidth = itemRect.width;
+    const gapStyle = window.getComputedStyle(track).gap;
+    const gap = gapStyle && gapStyle !== "normal" ? parseFloat(gapStyle) : 24;
     const scrollAmount = currentIndex * (itemWidth + gap);
     track.style.transform = `translateX(-${scrollAmount}px)`;
 
     const itemsToShow = window.innerWidth > 1000 ? 3 : window.innerWidth > 600 ? 2 : 1;
     prevBtn.disabled = currentIndex === 0;
     nextBtn.disabled = currentIndex >= items.length - itemsToShow;
+
+    if (dotsContainer) {
+      const dots = dotsContainer.querySelectorAll(".carousel-dot");
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentIndex);
+      });
+    }
   };
 
   nextBtn.addEventListener("click", () => {
