@@ -154,7 +154,7 @@ footer .nav-link.link--home:link {
   width: 100vw;
   display: flex;
   flex-direction: column;
-  padding-top: 16rem;
+  justify-content: center;
   align-items: center;
 }
 
@@ -538,68 +538,68 @@ footer {
 /* ANIMATIONS */
 @keyframes shadowPulse {
   0% {
-      filter: drop-shadow(0 0 1rem rgba(34, 139, 230, 0.2));
-    }
-    50% {
-      filter: drop-shadow(0 0 2rem rgba(34, 139, 230, 0.4));
-    }
-    100% {
-      filter: drop-shadow(0 0 1rem rgba(34, 139, 230, 0.2));
-    }
+    filter: drop-shadow(0 0 1rem rgba(34, 139, 230, 0.2));
+  }
+  50% {
+    filter: drop-shadow(0 0 2rem rgba(34, 139, 230, 0.4));
+  }
+  100% {
+    filter: drop-shadow(0 0 1rem rgba(34, 139, 230, 0.2));
+  }
 }
 
 @keyframes doublePulse {
   0%,
-    100% {
-      box-shadow: 0 0 2rem #228be680;
-    }
-    10% {
-      box-shadow: 0 0 3rem #228be6;
-    }
-    20% {
-      box-shadow: 0 0 3rem #228be680;
-    }
-  
-    30% {
-      box-shadow: 0 0 3rem #228be6;
-    }
-    40% {
-      box-shadow: 0 0 2rem #228be680;
-    }
-  
-    41%,
-    99% {
-      box-shadow: 0 0 2rem #228be680;
-    }
+  100% {
+    box-shadow: 0 0 2rem #228be680;
+  }
+  10% {
+    box-shadow: 0 0 3rem #228be6;
+  }
+  20% {
+    box-shadow: 0 0 3rem #228be680;
+  }
+
+  30% {
+    box-shadow: 0 0 3rem #228be6;
+  }
+  40% {
+    box-shadow: 0 0 2rem #228be680;
+  }
+
+  41%,
+  99% {
+    box-shadow: 0 0 2rem #228be680;
+  }
 }
 
 @keyframes spin {
   from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes jump {
   from {
-      transform: translateY(0);
-    }
-    to {
-      transform: translateY(-2.5rem);
-    }
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-2.5rem);
+  }
 }
 
 @keyframes shadow-scale {
   from {
-      transform: scale(1);
-      opacity: 0.4;
-    }
-    to {
-      transform: scale(0.4);
-      opacity: 0.1;
-    }
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  to {
+    transform: scale(0.4);
+    opacity: 0.1;
+  }
 }
 
 /* BASE HERO RULES */
@@ -622,9 +622,10 @@ footer {
   z-index: -200;
   width: 100%;
   height: 100%;
-  background: url(../img/hero.webp);
-  background-position: center;
-  background-size: cover;
+  background: url(../img/hero2.webp);
+  background-position: 80%;
+  background-position-y: 60%;
+  background-size: 150%;
   background-repeat: no-repeat;
   opacity: 0.4;
 }
@@ -638,8 +639,9 @@ footer {
   width: 100%;
   height: 100%;
   background: url(../img/hero2.webp);
-  background-position: center;
-  background-size: cover;
+  background-position: 80%;
+  background-position-y: 60%;
+  background-size: 150%;
   background-repeat: no-repeat;
   opacity: 0.4;
 }
@@ -666,7 +668,7 @@ footer {
 
 .hero-section .heading-secondary,
 .lesson-hero-section .heading-secondary {
-  max-width: 100rem;
+  max-width: 78rem;
   text-align: center;
   margin-bottom: 2rem;
   font-weight: 700;
@@ -735,9 +737,10 @@ footer {
   z-index: -200;
   width: 100%;
   height: 100%;
-  background: url(../img/hero.webp);
-  background-position: center;
-  background-size: cover;
+  background: url(../img/hero2.webp);
+  background-position: 80%;
+  background-position-y: 60%;
+  background-size: 150%;
   background-repeat: no-repeat;
   opacity: 0.4;
 }
@@ -751,8 +754,9 @@ footer {
   width: 100%;
   height: 100%;
   background: url(../img/hero2.webp);
-  background-position: center;
-  background-size: cover;
+  background-position: 80%;
+  background-position-y: 60%;
+  background-size: 150%;
   background-repeat: no-repeat;
   opacity: 0.4;
 }
@@ -1306,6 +1310,159 @@ footer {
   gap: 0.8rem;
 }
 
+/* REVIEWS SECTION */
+.reviews-section {
+  position: relative;
+  padding: 8.6rem;
+  width: 100%;
+  text-align: center;
+}
+
+.reviews-section::before {
+  content: "";
+  position: absolute;
+  top: 50rem;
+  right: -10rem;
+  height: 50rem;
+  width: 50rem;
+  background-image: url(../img/usd.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transform: rotate(15deg);
+  animation: shadowPulse 4s ease-in-out infinite;
+}
+
+.reviews-section::after {
+  content: "";
+  position: absolute;
+  top: 10rem;
+  left: -10rem;
+  height: 50rem;
+  width: 50rem;
+  background-image: url(../img/usd.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transform: rotate(-15deg);
+  animation: shadowPulse 4s ease-in-out infinite;
+}
+
+.reviews-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 6.4rem;
+  align-items: center;
+  max-width: 140rem;
+  margin: 0 auto;
+}
+
+.featured-review {
+  width: calc((100% - 20rem) / 3);
+}
+
+.video-accent-box {
+  position: relative;
+  border-radius: 3.2rem;
+  overflow: hidden;
+  box-shadow: 0 0 3rem rgba(34, 139, 230, 0.2);
+  aspect-ratio: 9 / 16;
+  background: #000;
+  transition: all 0.5s;
+}
+
+.video-accent-box:hover {
+  box-shadow: 0 0 4rem rgba(34, 139, 230, 0.3);
+}
+
+.review-video-featured {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-overlay-text {
+  position: absolute;
+  top: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  font-weight: 700;
+  white-space: normal;
+  text-align: center;
+  width: 90%;
+  line-height: 1.2;
+  pointer-events: none;
+  z-index: 800;
+}
+
+.reviews-container {
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+  width: 100%;
+  position: relative;
+}
+
+.reviews-track-container {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 2.4rem;
+}
+
+.reviews-track {
+  display: flex;
+  gap: 2.4rem;
+  transition: transform 0.4s ease-out;
+  padding: 1.2rem;
+}
+
+.review-item {
+  flex: 0 0 calc(33.333% - 1.6rem);
+  scroll-snap-align: center;
+  border-radius: 2rem;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
+  aspect-ratio: 9 / 16;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.review-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-btn {
+  background: rgba(34, 139, 230, 0.2);
+  border: 2px solid #228be6;
+  color: #fff;
+  width: 5.2rem;
+  height: 5.2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 2.4rem;
+  z-index: 10;
+}
+
+.carousel-btn:hover {
+  background: #228be6;
+  box-shadow: 0 0 2rem #228be680;
+}
+
+.carousel-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
 /* LESSONS SECTION */
 .lessons-container {
   padding: 4.8rem 8.6rem;
@@ -1494,37 +1651,37 @@ footer {
 @media (max-width: 80em) {
   #lesson-1::before {
     top: -28rem;
-  left: -22rem;
-  height: 40rem;
-  width: 40rem;
+    left: -22rem;
+    height: 40rem;
+    width: 40rem;
   }
 
   #lesson-2::before {
     top: -12rem;
-  right: -20rem;
-  height: 30rem;
-  width: 30rem;
+    right: -20rem;
+    height: 30rem;
+    width: 30rem;
   }
 
   #lesson-3::before {
     top: -12rem;
-  left: -22rem;
-  height: 30rem;
-  width: 30rem;
+    left: -22rem;
+    height: 30rem;
+    width: 30rem;
   }
 
   #join::before {
     top: -12rem;
-  right: -30rem;
-  height: 30rem;
-  width: 30rem;
+    right: -30rem;
+    height: 30rem;
+    width: 30rem;
   }
 
   #join::after {
     bottom: -20rem;
-  left: -30rem;
-  height: 30rem;
-  width: 30rem;
+    left: -30rem;
+    height: 30rem;
+    width: 30rem;
   }
 
   .menu-btn {
@@ -1533,82 +1690,82 @@ footer {
 
   .nav-link:link {
     display: none;
-  opacity: 0;
+    opacity: 0;
   }
 
   footer .nav-link:link {
     display: block;
-  opacity: 1;
+    opacity: 1;
   }
 
   .nav-link.link--home:link {
     display: block;
-  margin-left: 6.4rem;
+    margin-left: 6.4rem;
   }
 
   .circles-container {
     flex-direction: column;
-  gap: 6.4rem;
-  margin-bottom: 6.4rem;
-  height: auto;
+    gap: 6.4rem;
+    margin-bottom: 6.4rem;
+    height: auto;
   }
 
   .circle-container {
     position: relative;
-  top: auto;
-  left: auto;
-  right: auto;
-  transform: none;
-  width: 90vw;
-  height: 90vw;
-  max-width: 70rem;
-  max-height: 70rem;
-  margin: 0 auto;
+    top: auto;
+    left: auto;
+    right: auto;
+    transform: none;
+    width: 90vw;
+    height: 90vw;
+    max-width: 70rem;
+    max-height: 70rem;
+    margin: 0 auto;
   }
 
   .pos-left,
   .pos-right {
     position: relative;
-  top: auto;
-  left: auto;
-  right: auto;
-  transform: none;
+    top: auto;
+    left: auto;
+    right: auto;
+    transform: none;
   }
 
   .pos-left::after {
     content: "";
-  position: absolute;
-  bottom: -40rem;
-  right: -40rem;
-  width: 54rem;
-  height: 54rem;
-  background-image: url(../img/eur-coin.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  transform: translateX(25%) translateY(-15%) rotate(-15deg);
-  animation: shadowPulse 4s ease-in-out infinite;
+    position: absolute;
+    bottom: -40rem;
+    right: -40rem;
+    width: 54rem;
+    height: 54rem;
+    background-image: url(../img/eur-coin.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transform: translateX(25%) translateY(-15%) rotate(-15deg);
+    animation: shadowPulse 4s ease-in-out infinite;
   }
 
   .pos-right::after {
     content: "";
-  position: absolute;
-  top: -40rem;
-  left: -40rem;
-  width: 54rem;
-  height: 54rem;
-  background-image: url(../img/eur-coin.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  transform: translateX(-20%) translateY(15%) rotate(15deg);
-  animation: shadowPulse 4s ease-in-out infinite;
+    position: absolute;
+    top: -40rem;
+    left: -40rem;
+    width: 54rem;
+    height: 54rem;
+    background-image: url(../img/eur-coin.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transform: translateX(-20%) translateY(15%) rotate(15deg);
+    animation: shadowPulse 4s ease-in-out infinite;
   }
 
   .stats-section .btn--cta {
     margin: 4rem auto;
-  margin-top: 10rem;
-  display: block;
+    margin-top: 10rem;
+    display: block;
   }
 
   .gradient {
@@ -1621,23 +1778,23 @@ footer {
 
   .card {
     grid-column: 1 / span 4 !important;
-  background-color: #1767ad3f;
+    background-color: #1767ad3f;
   }
 
   .team-section::after {
     content: "";
-  position: absolute;
-  top: 10%;
-  left: 0;
-  width: 54rem;
-  height: 54rem;
-  background-image: url(../img/usd.webp);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  transform: translateX(-30%) translateY(5%) rotate(15deg);
-  animation: shadowPulse 4s ease-in-out infinite;
-  z-index: -999;
+    position: absolute;
+    top: 10%;
+    left: 0;
+    width: 54rem;
+    height: 54rem;
+    background-image: url(../img/usd.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transform: translateX(-30%) translateY(5%) rotate(15deg);
+    animation: shadowPulse 4s ease-in-out infinite;
+    z-index: -999;
   }
 
   .card {
@@ -1646,63 +1803,63 @@ footer {
 
   .card:nth-child(2):after {
     content: "";
-  position: absolute;
-  top: -20%;
-  right: 0;
-  width: 54rem;
-  height: 54rem;
-  background-image: url(../img/usd-coin.webp);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  transform: translateX(30%) translateY(5%) rotate(15deg);
-  animation: shadowPulse 4s ease-in-out infinite;
-  z-index: -999;
+    position: absolute;
+    top: -20%;
+    right: 0;
+    width: 54rem;
+    height: 54rem;
+    background-image: url(../img/usd-coin.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transform: translateX(30%) translateY(5%) rotate(15deg);
+    animation: shadowPulse 4s ease-in-out infinite;
+    z-index: -999;
   }
 
   .card:last-child:after {
     content: "";
-  position: absolute;
-  top: -20%;
-  left: 0;
-  width: 54rem;
-  height: 54rem;
-  background-image: url(../img/usd.webp);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  transform: translateX(-50%) translateY(5%) rotate(-15deg);
-  animation: shadowPulse 4s ease-in-out infinite;
-  z-index: -999;
+    position: absolute;
+    top: -20%;
+    left: 0;
+    width: 54rem;
+    height: 54rem;
+    background-image: url(../img/usd.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transform: translateX(-50%) translateY(5%) rotate(-15deg);
+    animation: shadowPulse 4s ease-in-out infinite;
+    z-index: -999;
   }
 
   .faq-section::before {
     top: -4rem;
-  left: -2.4rem;
+    left: -2.4rem;
   }
 
   .stats-num {
     font-size: 8.6rem;
-  margin-bottom: 0.4rem;
+    margin-bottom: 0.4rem;
   }
 
   .stats-name {
     max-width: 15rem;
-  margin: 0 auto;
+    margin: 0 auto;
   }
 
   .glow-dot {
     position: absolute;
-  width: 15%;
-  height: 15%;
-  max-width: 6.4rem;
-  max-height: 6.4rem;
-  background: #64aeee;
-  border-radius: 50%;
-  bottom: 13%;
-  left: 8%;
-  filter: blur(0.5px);
-  box-shadow: 0 0 4rem #0088ff;
+    width: 15%;
+    height: 15%;
+    max-width: 6.4rem;
+    max-height: 6.4rem;
+    background: #64aeee;
+    border-radius: 50%;
+    bottom: 13%;
+    left: 8%;
+    filter: blur(0.5px);
+    box-shadow: 0 0 4rem #0088ff;
   }
 
   .faq-question {
@@ -1711,25 +1868,39 @@ footer {
 
   .faq-icon-box {
     width: 5.2rem;
-  height: 5.2rem;
+    height: 5.2rem;
   }
 
   .icon-plus,
   .icon-minus {
     width: 5.2rem;
-  height: 5.2rem;
+    height: 5.2rem;
   }
 
   .faq-answer-text {
     line-height: 1.6;
+  }
+
+  .reviews-section::before {
+    top: 50rem;
+    right: -10rem;
+    height: 40rem;
+    width: 40rem;
+  }
+
+  .reviews-section::after {
+    top: 5rem;
+    left: -10rem;
+    height: 40rem;
+    width: 40rem;
   }
 }
 
 @media (max-width: 69em) {
   .video {
     width: 90rem;
-  height: 50.72rem;
-  z-index: 999;
+    height: 50.72rem;
+    z-index: 999;
   }
 
   .lessons-container {
@@ -1738,94 +1909,104 @@ footer {
 
   #lesson-1::before {
     top: -30rem;
-  left: -28rem;
-  height: 40rem;
-  width: 40rem;
+    left: -28rem;
+    height: 40rem;
+    width: 40rem;
   }
 
   #lesson-2::before {
     top: -16rem;
-  right: -24rem;
-  height: 30rem;
-  width: 30rem;
+    right: -24rem;
+    height: 30rem;
+    width: 30rem;
   }
 
   #lesson-3::before {
     top: 4rem;
-  left: -28rem;
-  height: 30rem;
-  width: 30rem;
+    left: -28rem;
+    height: 30rem;
+    width: 30rem;
   }
 
   #join::before {
     top: -12rem;
-  right: -30rem;
-  height: 30rem;
-  width: 30rem;
+    right: -30rem;
+    height: 30rem;
+    width: 30rem;
   }
 
   #join::after {
     bottom: -20rem;
-  left: -30rem;
-  height: 30rem;
-  width: 30rem;
+    left: -30rem;
+    height: 30rem;
+    width: 30rem;
+  }
+
+  .reviews-section::before {
+    z-index: -999;
+    top: 70rem;
+  }
+
+  .reviews-section::after {
+    top: -10rem;
+    z-index: -999;
   }
 }
 
 @media (max-width: 62em) {
   .video {
     width: 70rem;
-  height: 39.45rem;
+    height: 39.45rem;
   }
 
   #lesson-1::before {
     top: -10rem;
-  left: -18rem;
-  height: 30rem;
-  width: 30rem;
-  z-index: -999;
+    left: -18rem;
+    height: 30rem;
+    width: 30rem;
+    z-index: -999;
   }
 
   #lesson-2::before {
     top: -20rem;
-  right: -10rem;
-  height: 30rem;
-  width: 30rem;
-  z-index: -999;
+    right: -10rem;
+    height: 30rem;
+    width: 30rem;
+    z-index: -999;
   }
 
   #lesson-3::before {
     z-index: -999;
-  top: -18rem;
-  left: -12rem;
-  height: 30rem;
-  width: 30rem;
+    top: -18rem;
+    left: -12rem;
+    height: 30rem;
+    width: 30rem;
   }
 
   #join::before {
     top: -12rem;
-  z-index: -999;
-  right: -10rem;
-  height: 30rem;
-  width: 30rem;
+    z-index: -999;
+    right: -10rem;
+    height: 30rem;
+    width: 30rem;
   }
 
   #join::after {
     z-index: -999;
-  bottom: -15rem;
-  left: -10rem;
-  height: 30rem;
-  width: 30rem;
+    bottom: -15rem;
+    left: -10rem;
+    height: 30rem;
+    width: 30rem;
   }
 
   .stats-section::before {
     height: 32rem;
-  width: 32rem;
+    width: 32rem;
   }
 
   .circle-container {
     max-width: 50vw;
-  max-height: 50vw;
+    max-height: 50vw;
   }
 
   .stats-num {
@@ -1834,42 +2015,42 @@ footer {
 
   .pos-left::after {
     width: 34rem;
-  height: 34rem;
-  bottom: -20rem;
-  right: -25rem;
+    height: 34rem;
+    bottom: -20rem;
+    right: -25rem;
   }
 
   .pos-right::after {
     width: 42rem;
-  height: 42rem;
-  top: -30rem;
-  left: -30rem;
+    height: 42rem;
+    top: -30rem;
+    left: -30rem;
   }
 
   .stats-section::after {
     width: 48rem;
-  height: 48rem;
+    height: 48rem;
   }
 
   .team-section::after {
     width: 48rem;
-  height: 48rem;
+    height: 48rem;
   }
 
   .card:nth-child(2):after {
     width: 44rem;
-  height: 44rem;
-  transform: translateX(30%) translateY(5%) rotate(0deg);
+    height: 44rem;
+    transform: translateX(30%) translateY(5%) rotate(0deg);
   }
 
   .roadmap-section::after {
     width: 48rem;
-  height: 48rem;
+    height: 48rem;
   }
 
   .faq-section::before {
     z-index: -999;
-  top: 2rem;
+    top: 2rem;
   }
 }
 
@@ -1909,7 +2090,7 @@ footer {
 
   .stats-section::before {
     left: -3.2rem;
-  top: -3.2rem;
+    top: -3.2rem;
   }
 
   .stats-section::after {
@@ -1918,8 +2099,8 @@ footer {
 
   .circle-container {
     max-width: 50rem;
-  max-height: 50rem;
-  margin: 0 auto;
+    max-height: 50rem;
+    margin: 0 auto;
   }
 
   .glow-dot {
@@ -1932,7 +2113,7 @@ footer {
 
   .analytic-section {
     padding-left: 4rem;
-  padding-right: 4rem;
+    padding-right: 4rem;
   }
 
   .analytic-text {
@@ -1957,7 +2138,7 @@ footer {
 
   .faq-section {
     padding: 8.6rem 4rem;
-  padding-top: 0;
+    padding-top: 0;
   }
 
   .cta-section {
@@ -1968,13 +2149,13 @@ footer {
 @media (max-width: 46em) {
   .video {
     width: 50rem;
-  height: 28.18rem;
-  border-radius: 2rem;
+    height: 28.18rem;
+    border-radius: 2rem;
   }
 
   .lessons-container .heading-secondary {
     font-size: 4rem;
-  margin-bottom: 3.2rem;
+    margin-bottom: 3.2rem;
   }
 
   .btn--video {
@@ -1987,7 +2168,7 @@ footer {
 
   .hero-section,
   .lesson-hero-section {
-    padding-top: 16rem;
+    padding-top: 50%;
   }
 
   .hero-section .heading-secondary,
@@ -1998,7 +2179,7 @@ footer {
   .hero-text,
   .lesson-hero-text {
     font-size: 2.2rem;
-  line-height: 1.4;
+    line-height: 1.4;
   }
 
   .hero-section .btn--cta,
@@ -2008,7 +2189,7 @@ footer {
 
   .stats-section::before {
     top: 10rem;
-  z-index: -999;
+    z-index: -999;
   }
 
   .subheading {
@@ -2021,18 +2202,18 @@ footer {
 
   .pos-left::after {
     z-index: -999;
-  right: -12rem;
+    right: -12rem;
   }
 
   .pos-right::after {
     z-index: -999;
-  left: -20rem;
-  top: -40rem;
+    left: -20rem;
+    top: -40rem;
   }
 
   .stats-section::after {
     z-index: -999;
-  bottom: 10rem;
+    bottom: 10rem;
   }
 
   .stats-section .btn--big.btn--cta {
@@ -2045,7 +2226,7 @@ footer {
 
   footer {
     padding-left: 4rem;
-  padding-right: 4rem;
+    padding-right: 4rem;
   }
 
   .cta-form::after {
@@ -2054,22 +2235,34 @@ footer {
 
   .cta-input {
     width: 100% !important;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   .btn--form.btn--cta {
     display: block;
-  width: 100%;
-  margin-top: 4rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  font-weight: 700;
+    width: 100%;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    font-weight: 700;
   }
 
   .faq-question {
     font-size: 3.2rem;
-  line-height: 1.4;
+    line-height: 1.4;
+  }
+
+  .reviews-section::before {
+    top: 100rem;
+    width: 30rem;
+    height: 30rem;
+  }
+
+  .reviews-section::after {
+    top: 0;
+    width: 30rem;
+    height: 30rem;
   }
 
   .nav-link.link--home:link {
@@ -2086,7 +2279,7 @@ footer {
 
   .menu-btn {
     top: 1.7rem;
-  font-size: 3rem;
+    font-size: 3rem;
   }
 
   header .nav-link.link--home:link {
@@ -2103,7 +2296,7 @@ footer {
 
   .btn--close {
     top: 2rem;
-  right: 2rem;
+    right: 2rem;
   }
 }
 
@@ -2120,12 +2313,12 @@ footer {
 
   .lessons-container {
     padding-left: 2rem;
-  padding-right: 2rem;
+    padding-right: 2rem;
   }
 
   .video {
     width: 40rem;
-  height: 22.55rem;
+    height: 22.55rem;
   }
 
   html {
@@ -2134,37 +2327,38 @@ footer {
 
   .hero-section #hero-btn.btn--cta {
     text-align: center;
-  font-size: 3.2rem;
-  width: 35rem;
+    font-size: 3.2rem;
+    width: 35rem;
+  }
+
+  .hero-section::before,
+  .lesson-hero-section::before {
+    background-position: 50% !important;
+    background-size: 300% !important;
+    opacity: 0.25 !important;
   }
 
   .hero-section,
   .lesson-hero-section {
     padding-left: 2rem;
-  padding-right: 2rem;
-  justify-content: start;
+    padding-right: 2rem;
+    justify-content: start;
   }
 
   .hero-section .heading-secondary,
   .lesson-hero-section .heading-secondary {
     font-size: 4.8rem;
-  text-align: left;
-  margin-bottom: 2.4rem;
+    margin-bottom: 2.4rem;
   }
 
   .lesson-hero-section .heading-secondary {
     width: 100%;
   }
 
-  .btn--lesson {
-    margin-right: auto;
-  }
-
   .hero-text,
   .lesson-hero-text {
-    text-align: left;
-  margin-bottom: 3.2rem;
-  font-size: 2.6rem;
+    margin-bottom: 3.2rem;
+    font-size: 2.6rem;
   }
 
   .header-menu {
@@ -2181,27 +2375,27 @@ footer {
 
   .stats-section {
     padding-left: 2rem;
-  padding-right: 2rem;
+    padding-right: 2rem;
   }
 
   .team-section {
     padding-left: 0rem;
-  padding-right: 0rem;
+    padding-right: 0rem;
   }
 
   .roadmap-section {
     padding-left: 2rem;
-  padding-right: 2rem;
+    padding-right: 2rem;
   }
 
   .faq-section {
     padding-left: 2rem;
-  padding-right: 2rem;
+    padding-right: 2rem;
   }
 
   .cta-section {
     padding-left: 2rem;
-  padding-right: 2rem;
+    padding-right: 2rem;
   }
 
   .cta-form {
@@ -2210,40 +2404,53 @@ footer {
 
   .card {
     padding: 3.2rem 2rem;
-  background: none;
-  border-radius: 0;
-  box-shadow: none;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: #061b2eb6;
   }
 
-  .team-section .heading-secondary,
-  .team-section .subheading {
-    padding-left: 2rem;
-  }
-
-  .card-list-icon {
-    width: 4rem;
-  height: 4rem;
-  }
-
-  .hero-section .btn--cta {
+  .reviews-section::before {
     display: none;
   }
 
-  .btn--cta.small-screen {
-    display: block;
-  align-self: flex-start;
+  .reviews-section::after {
+    display: none;
   }
 
-  .glow-dot {
-    width: 12%;
+  footer .social-links-container {
+    column-gap: 4rem;
+  }
+}
+
+.team-section .heading-secondary,
+.team-section .subheading {
+  padding-left: 2rem;
+}
+
+.card-list-icon {
+  width: 4rem;
+  height: 4rem;
+}
+
+.hero-section .btn--cta {
+  display: none;
+  margin: 0 auto;
+}
+
+.btn--cta.small-screen {
+  display: block;
+  align-self: flex-start;
+}
+
+.glow-dot {
+  width: 12%;
   height: 12%;
   bottom: 11%;
   box-shadow: 0 0 5rem #0088ff;
-  }
+}
 
-  .join-text {
-    margin-top: 3.2rem;
-  }
+.join-text {
+  margin-top: 3.2rem;
 }
 
 @media (max-width: 28.45em) {
@@ -2253,11 +2460,11 @@ footer {
 
   .social-links-container {
     display: grid;
-  grid-template-columns: repeat(3, 5rem);
-  text-align: center;
-  align-content: end;
-  row-gap: 2rem;
-  margin-bottom: 4.8rem;
+    grid-template-columns: repeat(3, 5rem);
+    text-align: center;
+    align-content: end;
+    row-gap: 2rem;
+    margin-bottom: 4.8rem;
   }
 
   footer .nav-link.link--home:link {
@@ -2266,45 +2473,45 @@ footer {
 
   .social-links-container .social-link:link:nth-child(2) {
     justify-self: end;
-  margin-right: -2rem;
+    margin-right: -2rem;
   }
 
   .social-links-container .social-link:link:last-child {
     margin-left: -2rem;
-  justify-self: start;
+    justify-self: start;
   }
 
   footer .nav-list {
     display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: fit-content;
-  margin: 0 auto;
-  align-items: center;
-  justify-items: center;
-  row-gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    width: fit-content;
+    margin: 0 auto;
+    align-items: center;
+    justify-items: center;
+    row-gap: 2rem;
   }
 
   .analytic-section {
     padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 12rem;
+    padding-right: 2rem;
+    padding-top: 12rem;
   }
 
   .analytic-text {
     font-weight: 500;
-  font-size: 2.6rem;
-  line-height: 1.4;
+    font-size: 2.6rem;
+    line-height: 1.4;
   }
 
   .analytic-text strong {
     font-size: 2.8rem;
-  margin-left: 0.4rem;
+    margin-left: 0.4rem;
   }
 
   .analytic-list {
     font-weight: 500;
-  font-size: 2.6rem;
-  line-height: 1.4;
+    font-size: 2.6rem;
+    line-height: 1.4;
   }
 
   .analytic-icon {
@@ -2312,3 +2519,34 @@ footer {
   }
 }
 
+@media (max-width: 62.5em) {
+  .reviews-section {
+    padding: 6.4rem 4.8rem;
+  }
+  .review-item {
+    flex: 0 0 calc(50% - 1.2rem);
+  }
+  .featured-review {
+    width: calc((100% - 17.6rem) / 2);
+  }
+}
+
+@media (max-width: 37.5em) {
+  .reviews-section {
+    padding: 4.8rem 2.4rem;
+  }
+  .review-item {
+    flex: 0 0 100%;
+  }
+  .reviews-container {
+    gap: 1.2rem;
+  }
+  .carousel-btn {
+    width: 4rem;
+    height: 4rem;
+    font-size: 1.8rem;
+  }
+  .featured-review {
+    width: calc(100% - 10.4rem);
+  }
+}

@@ -10,13 +10,13 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" defer></script>
     <script src="assets/js/script.js" defer></script>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-    <link rel="icon" href="assets/img/favicon.ico">
-    <meta name="apple-mobile-web-app-title" content="CLAN MAXONA">
-    <meta name="application-name" content="CLAN MAXONA">
-    <meta name="theme-color" content="#040914">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png" />
+    <link rel="icon" href="assets/img/favicon.ico" />
+    <meta name="apple-mobile-web-app-title" content="CLAN MAXONA" />
+    <meta name="application-name" content="CLAN MAXONA" />
+    <meta name="theme-color" content="#040914" />
   </head>
   <body>
     <div class="loader">
@@ -60,8 +60,8 @@
           <li><a href="#" class="nav-link link--home">CLAN MAXONA</a></li>
           <li><a href="#stats" class="nav-link">СТАТИСТИКА</a></li>
           <li><a href="#team" class="nav-link">КОМАНДА</a></li>
-          <li><a href="#roadmap" class="nav-link">ROADMAP</a></li>
           <li><a href="#faq" class="nav-link">FAQ</a></li>
+          <li><a href="#reviews" class="nav-link">ОТЗЫВЫ</a></li>
           <li><a href="#cta" class="btn--cta">НАЧАТЬ ОБУЧЕНИЕ</a></li>
         </ul>
       </nav>
@@ -70,8 +70,8 @@
           <li><a href="#" class="nav-link link--home">CLAN MAXONA</a></li>
           <li><a href="#stats" class="nav-link">СТАТИСТИКА</a></li>
           <li><a href="#team" class="nav-link">КОМАНДА</a></li>
-          <li><a href="#roadmap" class="nav-link">ROADMAP</a></li>
           <li><a href="#faq" class="nav-link">FAQ</a></li>
+          <li><a href="#reviews" class="nav-link">ОТЗЫВЫ</a></li>
         </ul>
       </nav>
       <menu class="header-menu">
@@ -132,7 +132,7 @@
                 </div>
               </div>
               <div class="stats-content">
-                <p class="stats-num">20М+</p>
+                <p class="stats-num">20М$+</p>
                 <p class="stats-name">КАПИТАЛ</p>
               </div>
             </div>
@@ -455,6 +455,50 @@
           </div>
         </section>
 
+        <section class="reviews-section" id="reviews">
+          <span class="subheading">ОТЗЫВЫ</span>
+          <h2 class="heading-secondary">Результаты учеников</h2>
+
+          <div class="reviews-layout">
+            <div class="featured-review">
+              <div class="video-accent-box">
+                <video class="review-video-featured" controls poster="assets/img/reviews/video-preview.png">
+                  <source src="assets/img/reviews/video.mp4" type="video/mp4" />
+                  Ваш браузер не поддерживает видео.
+                </video>
+                <div class="video-overlay-text">СМОТРЕТЬ ВИДЕО-ОТЗЫВ</div>
+              </div>
+            </div>
+
+            <div class="reviews-container">
+              <button class="carousel-btn prev-btn" aria-label="Предыдущий отзыв">
+                <ion-icon name="chevron-back-outline"></ion-icon>
+              </button>
+
+              <div class="reviews-track-container">
+                <div class="reviews-track">
+                  <div class="review-item"><img src="assets/img/reviews/1.jpg" alt="Отзыв клиента 1" loading="lazy" /></div>
+                  <div class="review-item"><img src="assets/img/reviews/2.jpg" alt="Отзыв клиента 2" loading="lazy" /></div>
+                  <div class="review-item"><img src="assets/img/reviews/3.jpg" alt="Отзыв клиента 3" loading="lazy" /></div>
+                  <div class="review-item"><img src="assets/img/reviews/4.jpg" alt="Отзыв клиента 4" loading="lazy" /></div>
+                  <div class="review-item"><img src="assets/img/reviews/5.jpg" alt="Отзыв клиента 5" loading="lazy" /></div>
+                  <div class="review-item"><img src="assets/img/reviews/6.jpg" alt="Отзыв клиента 6" loading="lazy" /></div>
+                  <div class="review-item"><img src="assets/img/reviews/7.jpg" alt="Отзыв клиента 7" loading="lazy" /></div>
+                  <div class="review-item"><img src="assets/img/reviews/8.jpg" alt="Отзыв клиента 8" loading="lazy" /></div>
+                  <div class="review-item"><img src="assets/img/reviews/9.jpg" alt="Отзыв клиента 9" loading="lazy" /></div>
+                  <div class="review-item"><img src="assets/img/reviews/10.jpg" alt="Отзыв клиента 10" loading="lazy" /></div>
+                  <div class="review-item"><img src="assets/img/reviews/11.jpg" alt="Отзыв клиента 11" loading="lazy" /></div>
+                  <div class="review-item"><img src="assets/img/reviews/12.jpg" alt="Отзыв клиента 12" loading="lazy" /></div>
+                </div>
+              </div>
+
+              <button class="carousel-btn next-btn" aria-label="Следующий отзыв">
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+              </button>
+            </div>
+          </div>
+        </section>
+
         <section class="cta-section" id="cta">
           <span class="subheading">НАЧАТЬ ОБУЧЕНИЕ</span>
           <h2 class="heading-secondary">Заполните форму<br />и перейдите к обучению</h2>
@@ -499,15 +543,13 @@
             <ul class="nav-list">
               <li><a href="#stats" class="nav-link">СТАТИСТИКА</a></li>
               <li><a href="#team" class="nav-link">КОМАНДА</a></li>
-              <li><a href="#roadmap" class="nav-link">ROADMAP</a></li>
               <li><a href="#faq" class="nav-link">FAQ</a></li>
+              <li><a href="#reviews" class="nav-link">ОТЗЫВЫ</a></li>
             </ul>
           </nav>
           <p class="footer-text">Copyright © 2026 by CLAN MAXONA, Inc. All rights reserved.</p>
         </footer>
       </div>
     </main>
-
-
   </body>
 </html>

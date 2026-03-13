@@ -38,9 +38,9 @@ const handleInitialLoader = async () => {
         defaultContainer.classList.add("visible");
       }
 
-      await Promise.all(
+      const imagePromises = Promise.all(
         Array.from(document.images)
-          .filter((img) => !img.complete)
+          .filter((img) => !img.complete && img.loading !== "lazy")
           .map(
             (img) =>
               new Promise((resolve) => {
@@ -48,6 +48,8 @@ const handleInitialLoader = async () => {
               }),
           ),
       );
+
+      await Promise.race([imagePromises, sleep(3000)]);
 
       const elapsed = Date.now() - startTime;
       const remaining = Math.max(0, 1000 - elapsed);
@@ -329,9 +331,80 @@ const initFormHandler = () => {
   });
 };
 
+const initReviewsCarousel = () => {
+  const track = document.querySelector(".reviews-track");
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
+  const items = document.querySelectorAll(".review-item");
+
+  if (!track || !prevBtn || !nextBtn || items.length === 0) return;
+
+  let currentIndex = 0;
+
+  const updateCarousel = () => {
+    const itemWidth = items[0].offsetWidth;
+    const gap = 24;
+    const scrollAmount = currentIndex * (itemWidth + gap);
+    track.style.transform = `translateX(-${scrollAmount}px)`;
+
+    const itemsToShow = window.innerWidth > 1000 ? 3 : window.innerWidth > 600 ? 2 : 1;
+    prevBtn.disabled = currentIndex === 0;
+    nextBtn.disabled = currentIndex >= items.length - itemsToShow;
+  };
+
+  nextBtn.addEventListener("click", () => {
+    const itemsToShow = window.innerWidth > 1000 ? 3 : window.innerWidth > 600 ? 2 : 1;
+    if (currentIndex < items.length - itemsToShow) {
+      currentIndex++;
+      updateCarousel();
+    }
+  });
+
+  prevBtn.addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateCarousel();
+    }
+  });
+
+  window.addEventListener("resize", updateCarousel);
+
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  track.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  track.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+
+  const handleSwipe = () => {
+    const swipeThreshold = 50;
+    const itemsToShow = window.innerWidth > 1000 ? 3 : window.innerWidth > 600 ? 2 : 1;
+
+    if (touchStartX - touchEndX > swipeThreshold) {
+      if (currentIndex < items.length - itemsToShow) {
+        currentIndex++;
+        updateCarousel();
+      }
+    } else if (touchEndX - touchStartX > swipeThreshold) {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+      }
+    }
+  };
+
+  updateCarousel();
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
   initFAQ();
+  initReviewsCarousel();
   initObservers();
   initSmoothScrollAndTransition();
   initFormHandler();
