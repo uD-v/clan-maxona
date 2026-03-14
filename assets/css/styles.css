@@ -540,22 +540,27 @@ footer {
   0% {
     filter: drop-shadow(0 0 1rem rgba(34, 139, 230, 0.2));
   }
+
   50% {
     filter: drop-shadow(0 0 2rem rgba(34, 139, 230, 0.4));
   }
+
   100% {
     filter: drop-shadow(0 0 1rem rgba(34, 139, 230, 0.2));
   }
 }
 
 @keyframes doublePulse {
+
   0%,
   100% {
     box-shadow: 0 0 2rem #228be680;
   }
+
   10% {
     box-shadow: 0 0 3rem #228be6;
   }
+
   20% {
     box-shadow: 0 0 3rem #228be680;
   }
@@ -563,6 +568,7 @@ footer {
   30% {
     box-shadow: 0 0 3rem #228be6;
   }
+
   40% {
     box-shadow: 0 0 2rem #228be680;
   }
@@ -577,6 +583,7 @@ footer {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -586,6 +593,7 @@ footer {
   from {
     transform: translateY(0);
   }
+
   to {
     transform: translateY(-2.5rem);
   }
@@ -596,6 +604,7 @@ footer {
     transform: scale(1);
     opacity: 0.4;
   }
+
   to {
     transform: scale(0.4);
     opacity: 0.1;
@@ -1160,7 +1169,7 @@ footer {
   left: 3.4rem;
   z-index: -999;
   position: absolute;
-  height: 70rem;
+  height: 84rem;
   width: 2px;
   background-color: #a0a0a0;
 }
@@ -1190,6 +1199,12 @@ footer {
   font-size: 3.2rem;
   line-height: 1.2;
   font-weight: 500;
+}
+
+.roadmap-text strong {
+  color: #228be6;
+  font-size: 3.2rem;
+  font-weight: 600;
 }
 
 /* FAQ SECTION */
@@ -1867,7 +1882,7 @@ footer {
   }
 
   .stats-name {
-    max-width: 15rem;
+    max-width: 30rem;
     margin: 0 auto;
   }
 
@@ -2070,11 +2085,11 @@ footer {
     width: 48rem;
     height: 48rem;
   }
-  
+
   .carousel-btn {
     display: none;
   }
-  
+
   .carousel-dots {
     display: flex;
   }
@@ -2119,7 +2134,7 @@ footer {
     padding: 0 4rem;
   }
 
-    .hero-section::before,
+  .hero-section::before,
   .lesson-hero-section::before {
     background-position: 50% !important;
     background-size: 300% !important;
@@ -2491,7 +2506,7 @@ footer {
 
 @media (max-width: 28.45em) {
   .roadmap::before {
-    height: 74rem;
+    height: 84rem;
   }
 
   .social-links-container {
@@ -2559,9 +2574,11 @@ footer {
   .reviews-section {
     padding: 6.4rem 4.8rem;
   }
+
   .review-item {
     flex: 0 0 calc(50% - 1.2rem);
   }
+
   .featured-review {
     width: calc(50% - 1.2rem);
   }
@@ -2571,17 +2588,21 @@ footer {
   .reviews-section {
     padding: 4.8rem 2.4rem;
   }
+
   .review-item {
     flex: 0 0 100%;
   }
+
   .reviews-container {
     gap: 1.2rem;
   }
+
   .carousel-btn {
     width: 4rem;
     height: 4rem;
     font-size: 1.8rem;
   }
+
   .featured-review {
     width: 100%;
   }
