@@ -1,4 +1,4 @@
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxZoPBSz0igOvGsbMEL05qxn3c5_IdHyJQSMoltjifZlu1MClyO0hjfL9DDwKUiYaDA/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby7AGEuTcmpHxwWhH5g9UA-wR1suw0nEh0n3SE6TihwGTGdtjTB7d4mxp6ckQ4o-ujc/exec";
 
 const SELECTORS = {
   faqItem: ".faq-item",
@@ -303,7 +303,9 @@ const initFormHandler = () => {
     if (submitBtn) submitBtn.disabled = true;
 
     try {
-      const response = await fetch(SCRIPT_URL, { method: "POST", body: new FormData(form) });
+      const formData = new FormData(form);
+      formData.append("page", "Лендинг")
+      const response = await fetch(SCRIPT_URL, { method: "POST", body: formData});
       if (!response.ok) throw new Error();
 
       loader.querySelector(".default")?.classList.remove("visible");
